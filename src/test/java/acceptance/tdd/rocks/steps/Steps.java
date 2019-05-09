@@ -18,7 +18,6 @@ abstract class Steps {
 
     @Before
     public void setUp() {
-
         if (!MOCK_SERVER.isRunning()) {
             MOCK_SERVER.start();
             WireMock.configureFor("localhost", 8081);
@@ -27,7 +26,6 @@ abstract class Steps {
 
     @After
     public void tearDown() {
-
         MOCK_SERVER.stop();
     }
 }

@@ -1,0 +1,33 @@
+plugins {
+    id "org.springframework.boot" version "2.1.4.RELEASE"
+    id "io.spring.dependency-management" version "1.0.7.RELEASE"
+    id "io.franzbecker.gradle-lombok" version "3.0.0"
+    id "application"
+}
+
+group = "tdd.rocks"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+
+    implementation group: "org.springframework.boot", name: "spring-boot-starter"
+    implementation group: "org.springframework.boot", name: "spring-boot-starter-jersey"
+
+    runtime group: "org.springframework.boot", name: "spring-boot-devtools"
+
+    testImplementation group: "org.springframework.boot", name: "spring-boot-starter-test"
+    testImplementation group: "org.junit.jupiter", name: "junit-jupiter-api", version: "5.4.2"
+    testImplementation group: "org.mockito", name: "mockito-junit-jupiter", version: "2.27.0"
+    testImplementation group: "io.cucumber", name: "cucumber-java8", version: "4.3.1"
+    testImplementation group: "io.cucumber", name: "cucumber-junit", version: "4.3.1"
+    testImplementation group: "io.cucumber", name: "cucumber-spring", version: "4.3.1"
+    testImplementation group: "com.github.tomakehurst", name: "wiremock", version: "2.23.2"
+}
+
+mainClassName = "tdd.rocks.TddRocksApplication"

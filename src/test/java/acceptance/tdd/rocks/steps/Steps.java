@@ -27,7 +27,6 @@ abstract class Steps {
 
     @After
     public void tearDown() {
-
         MOCK_SERVER.stop();
     }
 }

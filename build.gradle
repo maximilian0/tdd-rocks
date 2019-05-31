@@ -22,8 +22,8 @@ dependencies {
     runtime group: "org.springframework.boot", name: "spring-boot-devtools"
 
     testImplementation group: "org.springframework.boot", name: "spring-boot-starter-test"
-    testImplementation group: "org.junit.jupiter", name: "junit-jupiter-api", version: "5.4.2"
-    testImplementation group: "org.mockito", name: "mockito-junit-jupiter", version: "2.27.0"
+    testImplementation group: "junit", name: "junit", version: "4.12"
+    testImplementation group: "org.mockito", name: "mockito-all", version: "1.10.19"
     testImplementation group: "io.cucumber", name: "cucumber-java8", version: "4.3.1"
     testImplementation group: "io.cucumber", name: "cucumber-junit", version: "4.3.1"
     testImplementation group: "io.cucumber", name: "cucumber-spring", version: "4.3.1"

@@ -21,13 +21,11 @@ Feature: Multi-Currency Bank Account Management
 
   Scenario Outline: As a client who own an account in Plaza Bank
   when I make a deposit of an amount of pesos
-  and I ask for my account balance in pesos
-  I want to know my account summarized balance
+  then I get my updated account summarized balance
 
     Given my bank account with number <account_number> in <currency>
     And <original_balance> already deposited
     When I made a deposit of <amount>
-    And I ask for the account balance in <currency>
     Then the balance is <final_balance>
 
     Examples:
@@ -38,13 +36,11 @@ Feature: Multi-Currency Bank Account Management
 
   Scenario Outline: As a client who own an account in Plaza Bank
   when I make a withdrawal of an amount of pesos
-  and I ask for my account balance in pesos
-  I want to know my account summarized balance
+  then I get my updated account summarized balance
 
     Given my bank account with number <account_number> in <currency>
     And <original_balance> already deposited
     When I made a withdraw of <amount>
-    And I ask for the account balance in <currency>
     Then the balance is <final_balance>
 
     Examples:

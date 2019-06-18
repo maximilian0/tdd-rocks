@@ -1,14 +1,21 @@
 package tdd.rocks;
 
+import lombok.AllArgsConstructor;
+
+import java.math.BigDecimal;
+
+@AllArgsConstructor
 public class BankAccount {
 
-    private String balance;
+    private BigDecimal amount;
+    private String currency;
 
-    public BankAccount(String balance) {
-        this.balance = balance;
+    public BankAccountBalance getBalance() {
+        return new BankAccountBalance(amount, currency);
     }
 
-    public String getBalanceInPesos() {
-        return balance;
+    public BankAccountBalance deposit(BigDecimal deposit) {
+        amount = amount.add(deposit);
+        return new BankAccountBalance(amount, currency);
     }
 }

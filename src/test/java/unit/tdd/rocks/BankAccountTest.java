@@ -2,6 +2,9 @@ package unit.tdd.rocks;
 
 import org.junit.Test;
 import tdd.rocks.BankAccount;
+import tdd.rocks.BankAccountBalance;
+
+import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -19,12 +22,13 @@ public class BankAccountTest {
         // | final_balance |
         // | 10 pesos      |
 
-        BankAccount account = new BankAccount("10 pesos");
+        BankAccountBalance expected = new BankAccountBalance(new BigDecimal(10), "pesos");
+        BankAccount account = new BankAccount(new BigDecimal(10), "pesos");
 
-        String balance = account.getBalanceInPesos();
+        BankAccountBalance balance = account.getBalance();
 
         assertNotNull(balance);
-        assertEquals("10 pesos", balance);
+        assertEquals(expected, balance);
     }
 
     @Test
@@ -32,11 +36,41 @@ public class BankAccountTest {
         // | final_balance |
         // | 0 pesos       |
 
-        BankAccount account = new BankAccount("0 pesos");
+        BankAccountBalance expected = new BankAccountBalance(new BigDecimal(0), "pesos");
+        BankAccount account = new BankAccount(new BigDecimal(0), "pesos");
 
-        String balance = account.getBalanceInPesos();
+        BankAccountBalance balance = account.getBalance();
 
         assertNotNull(balance);
-        assertEquals("0 pesos", balance);
+        assertEquals(expected, balance);
+    }
+
+    @Test
+    public void testDeposit15Pesos() {
+        //| original_balance | amount  | final_balance |
+        //| 10 pesos         | 5 pesos | 15 pesos      |
+
+        BankAccountBalance expected = new BankAccountBalance(new BigDecimal(15), "pesos");
+        BankAccount account = new BankAccount(new BigDecimal(10), "pesos");
+
+        BankAccountBalance balance = account.deposit(new BigDecimal(5));
+
+        assertNotNull(balance);
+        assertEquals(expected, balance);
+    }
+
+    @Test
+    public void testDeposit5Pesos() {
+        //| original_balance | amount  | final_balance |
+        //| 0 pesos          | 5 pesos | 5 pesos       |
+
+        BankAccountBalance expected = new BankAccountBalance(new BigDecimal(5), "pesos");
+        BankAccount account = new BankAccount(new BigDecimal(0), "pesos");
+
+        BankAccountBalance balance = account.deposit(new BigDecimal(5));
+
+        assertNotNull(balance);
+        assertEquals(expected, balance);
+        assertEquals(expected, account.getBalance());
     }
 }

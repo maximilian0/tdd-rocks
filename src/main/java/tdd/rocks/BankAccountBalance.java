@@ -11,4 +11,12 @@ public class BankAccountBalance {
 
     private BigDecimal amount;
     private String currency;
+
+    @Override
+    public String toString() {
+        return "BankAccountBalance{" +
+                "amount=" + amount +
+                ", currency='" + currency + '\'' +
+                '}';
+    }
 }

@@ -17,6 +17,7 @@ repositories {
 dependencies {
 
     implementation group: "org.springframework.boot", name: "spring-boot-starter"
+    implementation group: "org.springframework.boot", name: "spring-boot-starter-actuator"
     implementation group: "org.springframework.boot", name: "spring-boot-starter-jersey"
 
     runtime group: "org.springframework.boot", name: "spring-boot-devtools"

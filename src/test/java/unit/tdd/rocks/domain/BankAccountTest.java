@@ -1,9 +1,9 @@
-package unit.tdd.rocks;
+package unit.tdd.rocks.domain;
 
 import org.junit.Test;
-import tdd.rocks.BankAccount;
-import tdd.rocks.BankAccountBalance;
-import tdd.rocks.InsufficientFundsException;
+import tdd.rocks.domain.BankAccount;
+import tdd.rocks.domain.BankAccountBalance;
+import tdd.rocks.domain.InsufficientFundsException;
 
 import java.math.BigDecimal;
 

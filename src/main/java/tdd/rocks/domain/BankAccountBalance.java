@@ -1,4 +1,4 @@
-package tdd.rocks;
+package tdd.rocks.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

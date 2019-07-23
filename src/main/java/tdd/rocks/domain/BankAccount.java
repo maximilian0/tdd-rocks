@@ -1,12 +1,16 @@
-package tdd.rocks;
+package tdd.rocks.domain;
 
 import lombok.AllArgsConstructor;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @AllArgsConstructor
 public class BankAccount {
+
+    public static Map<String, BankAccount> REPOSITORY = new LinkedHashMap<>();
 
     private BigDecimal amount;
     private String currency;

@@ -9,8 +9,4 @@ public class TddRocksApplication {
     public static void main(String[] args) {
         SpringApplication.run(TddRocksApplication.class, args);
     }
-
-    public String getGreeting() {
-        return "Hello world.";
-    }
 }

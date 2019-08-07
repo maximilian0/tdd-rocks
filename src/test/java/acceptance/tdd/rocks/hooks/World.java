@@ -11,7 +11,7 @@ import java.util.Map;
 
 public enum World {
 
-    INSTANCE;
+    UNIQUE_INSTANCE;
 
     private BankAccount bankAccount;
     private BankAccountBalance bankAccountBalance;

@@ -5,10 +5,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tdd.rocks.domain.BankAccountBalance;
 import tdd.rocks.services.BankAccountService;
+
+import java.util.Map;
 
 import static org.springframework.http.HttpStatus.OK;
 
@@ -28,8 +32,9 @@ public class BankAccountController {
         return new ResponseEntity<>(service.getBalance(accountNumber), OK);
     }
 
-    @GetMapping(value = "/ping")
-    public String ping() {
-        return "pong";
+    @PostMapping(value = "/{accountNumber}/deposit")
+    public ResponseEntity<BankAccountBalance> postDeposit(@PathVariable String accountNumber,
+                                                          @RequestBody Map<String, Object> body) {
+        return new ResponseEntity<>(service.postDeposit(accountNumber, body), OK);
     }
 }

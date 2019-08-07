@@ -1,9 +1,11 @@
 plugins {
-    id "org.springframework.boot" version "2.1.5.RELEASE"
-    id "io.spring.dependency-management" version "1.0.7.RELEASE"
-    id "io.franzbecker.gradle-lombok" version "3.0.0"
-    id "application"
+    id "com.gradle.build-scan" version "2.3"
+    id "org.springframework.boot" version "2.1.6.RELEASE"
+    id "io.franzbecker.gradle-lombok" version "3.1.0"
+    id "java"
 }
+
+apply plugin: "io.spring.dependency-management"
 
 group = "tdd.rocks"
 sourceCompatibility = 1.8
@@ -14,13 +16,24 @@ repositories {
     jcenter()
 }
 
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 dependencies {
 
-    implementation group: "org.springframework.boot", name: "spring-boot-starter"
+    implementation group: "org.springframework.boot", name: "spring-boot-starter-data-rest"
     implementation group: "org.springframework.boot", name: "spring-boot-starter-actuator"
     implementation group: "org.springframework.boot", name: "spring-boot-starter-jersey"
+    implementation group: "com.fasterxml.jackson.datatype", name: "jackson-datatype-jsr310"
 
-    runtime group: "org.springframework.boot", name: "spring-boot-devtools"
+    developmentOnly group: "org.springframework.boot", name: "spring-boot-devtools"
 
     testImplementation group: "org.springframework.boot", name: "spring-boot-starter-test"
     testImplementation group: "junit", name: "junit", version: "4.12"
@@ -30,5 +43,3 @@ dependencies {
     testImplementation group: "io.cucumber", name: "cucumber-spring", version: "4.3.1"
     testImplementation group: "com.github.tomakehurst", name: "wiremock", version: "2.23.2"
 }
-
-mainClassName = "tdd.rocks.TddRocksApplication"
